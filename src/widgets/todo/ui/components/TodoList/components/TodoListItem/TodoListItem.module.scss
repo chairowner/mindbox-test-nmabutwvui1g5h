@@ -1,0 +1,36 @@
+.item {
+  min-height: 60px;
+  background-color: #ffffff;
+  border-top: 1px solid #eaeaea;
+  display: flex;
+  align-items: center;
+
+  .checkbox {
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text {
+    padding: 14px 54px 14px 14px;
+    flex: 1;
+  }
+  span.text {
+    overflow-y: auto;
+  }
+  input.text {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 24px;
+    font-weight: 300;
+    font-family: 'Roboto';
+    color: #555555;
+  }
+
+  &[aria-disabled='true'] > .text {
+    color: #d4d4d4;
+    text-decoration: line-through;
+  }
+}

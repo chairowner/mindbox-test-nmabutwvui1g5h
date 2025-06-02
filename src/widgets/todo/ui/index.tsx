@@ -30,13 +30,17 @@ export const TodoWidget: FC<TodoWidgetProps> = ({ initialState = [] }) => {
     ]);
   };
 
+  const changeTodo = (id: string, text: string) => {
+    setTodos((prev) => prev.map((item) => (item.id === id ? { ...item, text } : item)));
+  };
+
   const clearCompleted = () => {
     setTodos((todo) => todo.filter((item) => !item.completed));
   };
 
-  const changeHandler = (itemId: string) => {
+  const changeHandler = (id: string) => {
     setTodos((prev) =>
-      prev.map((item) => (item.id === itemId ? { ...item, completed: !item.completed } : item)),
+      prev.map((item) => (item.id === id ? { ...item, completed: !item.completed } : item)),
     );
   };
 
@@ -56,7 +60,12 @@ export const TodoWidget: FC<TodoWidgetProps> = ({ initialState = [] }) => {
     <div className={s.wrapper}>
       <div className={s.container}>
         <TodoInput addTodo={addTodo} />
-        <TodoList todos={todos} filter={filter} changeHandler={changeHandler} />
+        <TodoList
+          todos={todos}
+          filter={filter}
+          changeHandler={changeHandler}
+          changeTodo={changeTodo}
+        />
         <TodoFooter
           todos={todos}
           filter={filter}
