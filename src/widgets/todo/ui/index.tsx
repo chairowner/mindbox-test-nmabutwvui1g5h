@@ -45,7 +45,7 @@ export const TodoWidget: FC<TodoWidgetProps> = ({ initialState = [] }) => {
   };
 
   useEffect(() => {
-    debouncedSaveRef.current = debounce((todos: Todo[]) => saveTodos(todos), 800);
+    debouncedSaveRef.current = debounce((todos: Todo[]) => saveTodos(todos), 500);
   }, []);
 
   useEffect(() => {

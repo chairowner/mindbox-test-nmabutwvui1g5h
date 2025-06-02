@@ -18,7 +18,7 @@ export const TodoListItem: FC<TodoListItemProps> = ({ item, changeHandler, chang
       const newValue = text.trim();
       if (newValue === '') return;
       changeTodo(item.id, newValue);
-    }, 1000),
+    }, 500),
   );
 
   useEffect(() => {
