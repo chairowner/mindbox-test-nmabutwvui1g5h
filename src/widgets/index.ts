@@ -1,1 +1,1 @@
-export { TodoWidget } from './todo/ui/ToDoWidget';
+export { TodoWidget } from './todo/ui';

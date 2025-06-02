@@ -1,12 +1,30 @@
-import type { FC, HTMLAttributes } from 'react';
-import styled from 'styled-components';
+import type { FC, ReactNode } from 'react';
+import s from './Button.module.scss';
+import classNames from 'classnames';
 
-const SButton = styled.button`
-  outline: none;
-  border: none;
-  cursor: pointer;
-`;
+interface ButtonProps {
+  children?: ReactNode;
+  type?: 'button' | 'submit' | 'reset';
+  className?: string;
+  selected?: boolean;
+  onClick?: () => void;
+}
 
-export const Button: FC<HTMLAttributes<HTMLButtonElement>> = ({ children }) => {
-  return <SButton>{children}</SButton>;
+export const Button: FC<ButtonProps> = ({
+  children,
+  selected,
+  onClick,
+  className = '',
+  type = 'button',
+}) => {
+  return (
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={selected}
+      className={classNames(s.button, selected && s.selected, className)}
+    >
+      {children}
+    </button>
+  );
 };

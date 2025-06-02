@@ -1,0 +1,17 @@
+.button {
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #555555;
+  padding: 3px 7px;
+  border: transparent 1px solid;
+
+  &.selected {
+    border-color: #e1d1d1;
+    border-radius: 2px;
+  }
+}

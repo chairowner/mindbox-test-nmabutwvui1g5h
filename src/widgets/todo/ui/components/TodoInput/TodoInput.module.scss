@@ -1,0 +1,53 @@
+.inputWrapper {
+  display: flex;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+
+  button {
+    padding: 0 26px;
+    position: relative;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    &::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      border-left: 3px solid #d4d4d4;
+      border-bottom: 3px solid #d4d4d4;
+      transform: rotate(-45deg);
+    }
+  }
+
+  input {
+    padding: 14px 54px 14px 18px;
+    height: 60px;
+    background: none;
+    outline: none;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    width: 100%;
+    color: #555555;
+
+    &::placeholder {
+      font-family: 'Roboto', sans-serif;
+      font-style: italic;
+      font-size: 24px;
+      font-weight: 300;
+      color: #d4d4d4;
+    }
+  }
+}

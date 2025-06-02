@@ -1,1 +1,1 @@
-export type { Todo } from './todo/model/types';
+export type { Todo, TodoFilter } from './todo/model/types';

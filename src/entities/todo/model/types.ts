@@ -1,5 +1,6 @@
 export type Todo = {
   id: string;
-  state: boolean;
+  completed: boolean;
   text: string;
 };
+export type TodoFilter = 'all' | 'active' | 'completed';

@@ -1,11 +1,5 @@
 import type { FC, ReactNode } from 'react';
-import styled from 'styled-components';
-
-const SCheckbox = styled.input`
-  border-radius: 50%;
-  border: #222222 1px solid;
-  outline: none;
-`;
+import s from './CheckBox.module.scss';
 
 interface CheckboxProps {
   children?: ReactNode;
@@ -14,5 +8,10 @@ interface CheckboxProps {
 }
 
 export const Checkbox: FC<CheckboxProps> = (props) => {
-  return <SCheckbox type="checkbox" {...props} />;
+  return (
+    <label className={s.checkbox}>
+      <input type="checkbox" {...props} />
+      <span className={s.mark} />
+    </label>
+  );
 };
