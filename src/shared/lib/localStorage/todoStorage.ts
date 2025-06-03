@@ -39,7 +39,6 @@ export const getTodos = (): Todo[] => {
 
 export const firstStart = (): void => {
   const data: string | null = localStorage.getItem(STORAGE_FS_KEY);
-  console.log('firstStart', data);
   if (!data) {
     localStorage.setItem(STORAGE_FS_KEY, Date.now().toString());
     saveTodos([
