@@ -91,7 +91,7 @@ export const TodoListItem: FC<TodoListItemProps> = ({ item, changeHandler, chang
   }, [edit, cursorPos]);
 
   return (
-    <div className={s.item} aria-disabled={item.completed}>
+    <div className={s.item} aria-disabled={item.completed} data-testid="todo-item">
       <div className={s.checkbox}>
         <Checkbox checked={item.completed} onChange={() => changeHandler(item.id)} />
       </div>

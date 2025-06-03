@@ -3,7 +3,7 @@ import { debounce } from './debounce';
 jest.useFakeTimers();
 
 describe('debounce', () => {
-  test('Вызов', () => {
+  it('Вызов', () => {
     const fn = jest.fn();
     const debounced = debounce(fn, 500);
 
@@ -14,7 +14,7 @@ describe('debounce', () => {
     expect(fn).toHaveBeenCalledWith('test');
   });
 
-  test('flush', () => {
+  it('flush', () => {
     const fn = jest.fn();
     const debounced = debounce(fn, 500);
 

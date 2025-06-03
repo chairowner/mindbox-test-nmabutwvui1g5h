@@ -9,5 +9,5 @@
     "allowJs": true,
     "verbatimModuleSyntax": false
   },
-  "include": ["src"]
+  "include": ["src", "jest.setup.ts"]
 }

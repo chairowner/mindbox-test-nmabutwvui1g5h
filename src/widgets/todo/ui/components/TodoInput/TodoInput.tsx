@@ -17,7 +17,11 @@ export const TodoInput: FC<TodoInputProps> = ({ addTodo }) => {
 
   return (
     <div className={s.inputWrapper}>
-      <button disabled={input.trim() === ''} onClick={() => clickHandler(input)} />
+      <button
+        data-testid="todo-btn"
+        disabled={input.trim() === ''}
+        onClick={() => clickHandler(input)}
+      />
       <input
         data-testid="todo-input"
         placeholder="What needs to be done?"
