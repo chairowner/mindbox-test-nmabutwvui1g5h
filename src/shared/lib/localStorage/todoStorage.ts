@@ -1,6 +1,8 @@
 import type { Todo } from '@/entities';
+import { v4 } from 'uuid';
 
-const STORAGE_KEY = 'todos';
+const STORAGE_TODO_KEY = 'todos';
+const STORAGE_FS_KEY = 'welcome';
 
 const isTodo = (obj: unknown): obj is Todo => {
   if (typeof obj !== 'object' || obj === null) return false;
@@ -19,11 +21,11 @@ const isTodoArray = (arr: unknown): arr is Todo[] => {
 };
 
 export const saveTodos = (todos: Todo[]) => {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+  localStorage.setItem(STORAGE_TODO_KEY, JSON.stringify(todos));
 };
 
 export const getTodos = (): Todo[] => {
-  const str = localStorage.getItem(STORAGE_KEY);
+  const str = localStorage.getItem(STORAGE_TODO_KEY);
   try {
     if (!str) return [];
     const data = JSON.parse(str);
@@ -32,5 +34,30 @@ export const getTodos = (): Todo[] => {
   } catch (error) {
     console.warn(error);
     return [];
+  }
+};
+
+export const firstStart = (): void => {
+  const data: string | null = localStorage.getItem(STORAGE_FS_KEY);
+  console.log('firstStart', data);
+  if (!data) {
+    localStorage.setItem(STORAGE_FS_KEY, Date.now().toString());
+    saveTodos([
+      {
+        id: v4(),
+        completed: false,
+        text: 'Тестовое задание',
+      },
+      {
+        id: v4(),
+        completed: true,
+        text: 'Прекрасный код',
+      },
+      {
+        id: v4(),
+        completed: false,
+        text: 'Покрытие тестами',
+      },
+    ]);
   }
 };

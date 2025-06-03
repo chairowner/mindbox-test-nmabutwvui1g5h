@@ -1,8 +1,4 @@
 .list {
-  min-height: 180px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
+  overflow: auto;
   background-color: #ffffff;
 }
